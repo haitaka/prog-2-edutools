@@ -1,0 +1,193 @@
+{
+  "environment" : "Catch",
+  "summary" : "a.k.a. Программирование-2\n3 семестр ММФ НГУ",
+  "title" : "Введение в ООП на примере C++",
+  "authors" : [
+    "Haitaka"
+  ],
+  "programming_language" : "ObjectiveC",
+  "language" : "ru",
+  "course_type" : "PyCharm",
+  "items" : [
+    {
+      "title" : "Input output",
+      "task_list" : [
+        {
+          "name" : "theory",
+          "files" : {
+            "CMakeLists.txt" : {
+              "name" : "CMakeLists.txt",
+              "placeholders" : [ ],
+              "is_visible" : false,
+              "text" : "cmake_minimum_required(VERSION 3.20)\n\nproject(global-Input_output-Hello_world)\n\nset(CMAKE_CXX_STANDARD 17)\n\nadd_executable(${PROJECT_NAME}-hello src/hello.cpp)\nadd_executable(${PROJECT_NAME}-ioc src/io.c)\nadd_executable(${PROJECT_NAME}-iocpp src/io.cpp)\nadd_executable(${PROJECT_NAME}-namespaces src/namespaces.cpp)\n"
+            },
+            "src/hello.cpp" : {
+              "name" : "src/hello.cpp",
+              "placeholders" : [ ],
+              "is_visible" : true,
+              "text" : "#include <iostream>\n\nint main() {\n    std::cout << \"Hello, world\" << std::endl;\n\n    return 0;\n}"
+            },
+            "src/io.cpp" : {
+              "name" : "src/io.cpp",
+              "placeholders" : [ ],
+              "is_visible" : true,
+              "text" : "#include <iostream>\n\nint main() {\n    int x;\n    std::cin >> x;\n\n    std::cout << \"x = \" << x;\n    std::cout << std::endl;\n\n    return 0;\n}\n"
+            },
+            "src/namespaces.cpp" : {
+              "name" : "src/namespaces.cpp",
+              "placeholders" : [ ],
+              "is_visible" : true,
+              "text" : "#include <iostream>\n\nnamespace aaa {\n    void foo() {\n        std::cout << \"aaa::foo\" << std::endl;\n    }\n}\n\nnamespace bbb {\n    int x = 42;\n}\n\n// namespace can be extended from outside\nnamespace bbb {\n    void foo() {\n        std::cout << \"bbb::foo \" << x << std::endl;\n    }\n}\n\nvoid foo() {\n    std::cout << \"foo\" << std::endl;\n}\n\nint main() {\n    aaa::foo();\n    bbb::foo();\n    foo();\n    return 0;\n}\n"
+            },
+            "src/io.c" : {
+              "name" : "src/io.c",
+              "placeholders" : [ ],
+              "is_visible" : true,
+              "text" : "#include <stdio.h>\n\nint main() {\n    int x;\n    scanf(\"%d\", &x);\n    printf(\"x = %d\\n\", x);\n\n    return 0;\n}\n"
+            }
+          },
+          "description_text" : "# Ввод и вывод на консоль\n\n## Стандартные потоки ввода/вывода\n\nВ языке C для вывода текста на экран и ввода текста с клавиатуры мы использовали функции `printf` и `scanf` \nиз стандартной библиотеки `stdio.h`.\n\n[io.c](course://Input output/theory/src/io.c):\n```c\n#include <stdio.h>\n\nint main() {\n    int x;\n    scanf(\"%d\", &x);\n    printf(\"x = %d\\n\", x);\n\n    return 0;\n}\n```\n\nВ C++ можно продолжать использовать `stdio.h`, но появляются и более удобные альтернативы.\nСтандартная библиотека `iostream` предоставляет возможности для работы с _потоками_ ввода и вывода на консоль:\n`std::cin` и `std::cout`.\n\n[io.cpp](course://Input output/theory/src/io.cpp):\n```c++\n#include <iostream>\n\nint main() {\n    int x;\n    std::cin >> x;\n    \n    std::cout << \"x = \" << x;\n    std::cout << std::endl;\n    \n    return 0;\n}\n```\n\nОператор `>>` используется для стения значения из потока, оператор `<<` для записи в поток.\nНесколько операций четния или записи можно объединять в цепочки для карткости.\n\nСпециальное значение `std::endl` используется для записи символа конца строки (аналогично `'\\n'`).\n\n\n## Пространство имён `std`\n\nПрефикс `std::` перед именами потоков `cin`/`cout`, а также перед многими другими именами из стандартной библиотеки,\nобозначает, что эти имена находятся в отдельном _пространстве имён_ `std` (standard).\n\nОператор `::` используется для указания того, в каком пространстве имён (слева) нужно искать данное имя (справа).\n\nПространства имён в языке C++ используются для предотвращения конфликтов имён в крупных (и не только) проектах.\nТак, например, в стандартной библиотеке объявлена сущсность с именем `std::vector`.\nЕсли бы этот `vector` не был сокрыт в пространстве имён `std`, мы бы не смогли создавать свои сущности с таким именем в\nсвоих программах (а мы захотим), как не смогли бы и использовать множество сторонних библиотек, предоставляющих поддержку\nлинейной алгебры. Разделение на пространства имён позволяет избежать подобных проблем.\n\nВ случаях, когда приходится активно работать с некоторым пространствои имён или определёнными его членами,\nможно \"подключить\" все или часть элементов к глобальному пространству имён:\n```c++\n#include <iostream>\n\n// для всех\nusing namespace std;\n\n// или отльельно для каждого\nusing namespace std::cin;\nusing namespace std::cout;\nusing namespace std::endl;\n\nint main() {\n    int x;\n    cin >> x;\n    \n    cout << \"x = \" << x;\n    cout << endl;\n    \n    return 0;\n}\n```\nНе стоит злоупотреблять этой возможностью, однако для `std` такой подход кажется приемлимым.\n\n[Пример объявления namesapce](course://Input output/theory/src/namespaces.cpp)\n",
+          "description_format" : "MD",
+          "feedback_link" : {
+            "link_type" : "STEPIK"
+          },
+          "task_type" : "theory"
+        },
+        {
+          "name" : "practice",
+          "files" : {
+            "CMakeLists.txt" : {
+              "name" : "CMakeLists.txt",
+              "placeholders" : [ ],
+              "is_visible" : false,
+              "text" : "cmake_minimum_required(VERSION 3.20)\n\nproject(global-Input_output-practice)\n\nset(CMAKE_CXX_STANDARD 17)\n\n# Files from `./src` directory\nset(SRC src/task.cpp)\n\n# Files from `./test` directory\nset(TEST test/test.cpp)\n\n\n# Running learner side code\n# Use PROJECT_NAME dependent names of targets for the plugin support to work correctly.\nadd_executable(${PROJECT_NAME}-run ${SRC})\n\n# Running tests\n# Use PROJECT_NAME dependent names of targets for the plugin support to work correctly.\nconfigure_test_target(${PROJECT_NAME}-test ${SRC} ${TEST})"
+            },
+            "src/task.cpp" : {
+              "name" : "src/task.cpp",
+              "placeholders" : [
+                {
+                  "offset" : 39,
+                  "length" : 56,
+                  "possible_answer" : "int n;\n    std::cin >> n;\n    int sum = 0;\n    while (n > 0) {\n        int x;\n        std::cin >> x;\n        sum += x;\n        n -= 1;\n    }\n    std::cout << sum << std::endl;",
+                  "placeholder_text" : "// write your code here\n    std::cout << 0 << std::endl;"
+                }
+              ],
+              "is_visible" : true,
+              "text" : "#include <iostream>\n\nvoid test() {\n    // write your code here\n    std::cout << 0 << std::endl;\n}\n\n// do NOT create your own main\n"
+            },
+            "test/test.cpp" : {
+              "name" : "test/test.cpp",
+              "placeholders" : [ ],
+              "is_visible" : false,
+              "text" : "// Indicates that the `main` function is need to be set.\n// Add this directive only in a one test file!\n#define CATCH_CONFIG_MAIN\n\n#include <catch.hpp>\n#include \"../../../utils/checkio.hpp\"\n\n// Headers of objects that student should implement:\nint test();\n\n// Tests:\nTEST_CASE(\"zero elements\", \"[SumTest]\") {\n    chio::checkIO(test, \"0\\n\", \"0\");\n}\n\nTEST_CASE(\"single element\", \"[SumTest]\") {\n    chio::checkIO(test, \"1\\n 42\\n\", \"42\");\n}\n\nTEST_CASE(\"negative elements\", \"[SumTest]\") {\n    chio::checkIO(test, \"3\\n 23 -23 42\\n\", \"42\");\n}\n\nTEST_CASE(\"lost numbers\", \"[SumTest]\") {\n    chio::checkIO(test, \"6\\n 4 8 15 16 23 42\\n\", \"108\");\n}\n"
+            }
+          },
+          "description_text" : "# Сумматор\n\nПотренируйтесь в работе со стандартными потоками ввода/вывода.\n\n## Задача:\nВ первой строке входного файла задается натуральное число N – количество суммируемых чисел.\nВ следующей строке задается N различных целых чисел, которые необходимо просуммировать.\n\nВ выходной файл записать результат суммирования.\n\nСчитать, что сумма 0 целых чисел равна 0.\n\n## Пример входных и выходных данных:\n\n| input.txt | output.txt |\n|-----------|------------|\n| 3         | 6          |\n| 1 2 3     |            |\n\n## Замечание\nВесь код должен быть написан в теле функции [test](psi_element://test), функцию `main` создавать не нужно.\nДля проверки решения нажмитена кнопку \"Check\" внизу.\n\n<div class=\"hint\">\nВы можете нажать вкладку \"Run\" в нижней части экрана (&shortcut:ActivateRunToolWindow;), чтобы увидеть список пройденных/непройденных тестов .\n</div>\n",
+          "description_format" : "MD",
+          "feedback_link" : {
+            "link_type" : "STEPIK"
+          },
+          "task_type" : "edu"
+        }
+      ],
+      "type" : "lesson"
+    },
+    {
+      "title" : "First class",
+      "task_list" : [
+        {
+          "name" : "classes and constructors",
+          "files" : {
+            "CMakeLists.txt" : {
+              "name" : "CMakeLists.txt",
+              "placeholders" : [ ],
+              "is_visible" : false,
+              "text" : "cmake_minimum_required(VERSION 3.20)\n\nproject(global-First_class-theory)\n\nset(CMAKE_CXX_STANDARD 17)\n\n# Files from `./src` directory\nset(SRC\n        src/fraction.cpp)\n\n\n# Running learner side code\n# Use PROJECT_NAME dependent names of targets for the plugin support to work correctly.\nadd_executable(${PROJECT_NAME}-run ${SRC})"
+            },
+            "src/fraction.cpp" : {
+              "name" : "src/fraction.cpp",
+              "placeholders" : [
+                {
+                  "offset" : 40,
+                  "length" : 705,
+                  "possible_answer" : "class ReducedFraction {\npublic:\n    ReducedFraction(int numerator, int denominator) : numerator(numerator), denominator(denominator) {\n        if (denominator == 0) throw std::invalid_argument(\"Denominator can't be 0\");\n        reduce();\n    }\n\n    ReducedFraction() : ReducedFraction(1, 2) {}\n\n    ReducedFraction(ReducedFraction const & that) = default;\n\n    int getNumerator() const {\n        return this->numerator;\n    }\n\n    unsigned int getDenominator() const {\n        return denominator;\n    }\n\n    friend std::ostream & operator<<(std::ostream & out, ReducedFraction const & f);\n\nprivate:\n    void reduce() {\n        int gcd = (int) std::gcd(std::abs(numerator), denominator); // since C++17\n        numerator /= gcd;\n        denominator /= gcd;\n    }\n\n    int numerator;\n    unsigned int denominator;\n};\n\nstd::ostream & operator<<(std::ostream & out, ReducedFraction const & f) {\n    out << f.numerator << \"/\" << f.denominator;\n    return out;\n}\n\nint main() {\n    ReducedFraction f1(3, 2);\n    ReducedFraction f2(15, 10);\n    std::cout << f1 << std::endl;\n    std::cout << f2 << std::endl;\n\n    ReducedFraction f3(42, 0);\n    return 0;\n}",
+                  "placeholder_text" : "struct Fraction {\n    int numerator;\n    unsigned int denominator;\n};\n\nunsigned int gcd(unsigned int a, unsigned int b) {\n    unsigned int rem;\n    while (b > 0)\n    {\n        rem = a % b;\n        a = b;\n        b = rem;\n    }\n    return a;\n}\n\nvoid reduce(struct Fraction * f) {\n    int d = (int) gcd(f->numerator, f->denominator);\n    f->numerator /= d;\n    f->denominator /= d;\n}\n\nvoid print(struct Fraction * f) {\n    printf(\"%d/%d\\n\", f->numerator, f->denominator);\n}\n\nint main() {\n    struct Fraction f1 = {3, 2};\n    reduce(&f1);\n    print(&f1);\n\n    struct Fraction f2 = {15, 10};\n    reduce(&f2);\n    print(&f2);\n\n    struct Fraction f3 = {42, 0};\n    reduce(&f2);\n    print(&f3);\n\n    return 0;\n}"
+                }
+              ],
+              "is_visible" : true,
+              "text" : "#include <iostream>\n#include <numeric>\n\nstruct Fraction {\n    int numerator;\n    unsigned int denominator;\n};\n\nunsigned int gcd(unsigned int a, unsigned int b) {\n    unsigned int rem;\n    while (b > 0)\n    {\n        rem = a % b;\n        a = b;\n        b = rem;\n    }\n    return a;\n}\n\nvoid reduce(struct Fraction * f) {\n    int d = (int) gcd(f->numerator, f->denominator);\n    f->numerator /= d;\n    f->denominator /= d;\n}\n\nvoid print(struct Fraction * f) {\n    printf(\"%d/%d\\n\", f->numerator, f->denominator);\n}\n\nint main() {\n    struct Fraction f1 = {3, 2};\n    reduce(&f1);\n    print(&f1);\n\n    struct Fraction f2 = {15, 10};\n    reduce(&f2);\n    print(&f2);\n\n    struct Fraction f3 = {42, 0};\n    reduce(&f2);\n    print(&f3);\n\n    return 0;\n}\n"
+            }
+          },
+          "description_text" : "# Мотивация\n\n## Тип данных\n*   Множество значений\n*   Множество операций\n \n### Примитивные\n\n`unsigned char`:\n* `[0; 255]`\n* `-, +, *, /, >, <, ...`\n \n`int *` :\n* `[0; 2**32)` или `[0; 2**64)`\n* `*, +, >, <, ...`\n\n### Составные\n\n```c\nstruct ReducedFraction {\n    int numerator; // числитель\n    unsigned int denominator; // знаменатель\n};\n```\n\n*   Декартово произведение множеств значений отдельных полей\n    * `[INT_MIN; INT_MAX] x [0; UINT_MAX]`\n*   Чтение и запись полей\n\n__Корректные состояния__ -- _подмножество_ множества значений, определяющееся тем, какой смысл мы вкладываем в тип.\n\nТак знаменатель никакой дроби не должен быть равен `0`.\n\nБолее того, в примере выше мы назвали нашу структуру `ReducedFraction`, подразумевая что дробь всегда должна быть _приведённой_.\nЯзык C никак не позволяет выразить такие свойства (инварианты) множества значений пользовательского типа данных.\n\n```c\nstruct ReducedFraction f1 = {3, 2};\nstruct ReducedFraction f2 = {15, 10};\nstruct ReducedFraction f3 = {42, 0};\n```\n\nДля ограничения множества допустимых значений пользовательского типа только корректными состояниями необходимо:\n1.  Гарантировать корректность начального состояния\n    ```c\n    ReducedFraction createCorrect(int num, unsigned int denom) {\n        assert(denom != 0);\n        ReducedFraction f = {num, denom};\n        reduce(&f);\n        return f;\n    }\n    ```\n2.  Ограничить множество _допустимых операций_ только такими, которые не нарушают корректность \n    (переводят объект из одного _корректного_ состояния в другое).\n    ```c\n    ReducedFraction sum(ReducedFraction f1, ReducedFraction f2) {\n        ReducedFraction result = {\n            f1.numerator * f2.denominator,\n            f2.numerator * f1.denominator,\n        };\n        reduce(&result);\n        return result;\n    }\n    ```\n\nОднако у пользователя (программиста, использующего наш тип данных) всё-равно остаётся возможность испортить состояние:\nзабыть проинициализировать дробь, проинициализировать в обход `createCorrect`, записывать поля непрямую, \nреализовать свою функцию для сложения дробей вместо `sum` и забыть привести (сократить) результат.\n\nОшибки неизбежны, важно ограничить пространство возможностей для их совершения.\n\n# Объектно-ориентированный подход (TODO ?)\n\n*   Ограничить прямой доступ к полям структуры;\n*   Явно описать множество допустимых операций в виде функций, переводящих объект из одного _корректного_ состояния в другое _корректное_ состояние.\n\nТаким образом внешний код не будет иметь возможности испортить состояние объекта.\nА значит, для внешнего наблюдателя множество возможных состояний будет совпадать с множеством корректных состояний.\n\n## C++\n\nЯзык C++ позволяет описывать связанные со структурой методы непосредственно в теле структуры.\nТакие функции называют __методами__.\n\nА для ограничения внешнего доступа к членам (полям или методам) структуры C++ предоставляет модификаторы области видимости\n`public` для членов доступных извне и `private` для членов видимых только изнутри.\n```c++\nstruct ReducedFraction {\npublic:\n    void add(/*ReducedFraction * this,*/ ReducedFraction * that) {\n        this->numerator = this->numerator * that->denominator,\n        this->denominator = that->numerator * this->denominator,\n        this->reduce();\n    }\n    \nprivate:\n    void reduce(/*ReducedFraction * this*/);\n    \n    int numerator;\n    unsigned int denominator;\n};\n```\n\nОбратите внимание на ключевое слово `this`.\nОно обозначает скрытый параметр типа \"указатель на структуру\", который неявно подставляется в каждый метод.\nПри вызове метода в качестве значения параметра `this` передаётся указатель стоящий слева от имени метода.\n```c++\nf1.add(&f2);\n```\nВ этом примере указатель `&f1` станет значением параметра `this`, а указатель `&f2` будет передан в качестве первого аргумента (`that`).\n\nДля краткости при обращении к членам структуры `this->` можно не писать.\n\n### `class`\n\nВ C++ ключевое слово `class` используется для описания структуры, члены которой по-умолчанию считаются `private`.\n\nВ дальнейшем пользовательские составные типы данных мы будем называть именно _классами_.\n\n### Конструкторы\n\nЧерез сокрытие полей и введение методов нам удалось ограничить множество возможных операций так,\nчто никакая операция не может перевести объект из корректно состояния в некорректное.\n\nНо нам также нужна возможность задавать корректное _начальное состояние_ объекта.\nДля этого в C++ используются специальные методы, называемые _конструкторами_.\n\n```c++\nclass ReducedFraction {\npublic:\n    ReducedFraction(int num, unsigned int denom) : numerator(num), denominator(denom) {\n        assert(denominator != 0);\n        reduce();\n    }\nprivate:\n    void reduce();\n\n    int numerator;\n    unsigned int denominator;\n}\n```\n\nУ конструкторов не пишется возвращаемый тип, а их имя всегда совпадает с именем класса.\n\nПомимо обычного тела как у других функций, в конструкторах также можно отдельно описать инициализацию полей класса.\nПоля и их значения перечисляются через запятую после двоеточия перед основным телом конструктора.\nТакой синтаксиси называется _списком инициализации_ членов класса.\nСписки инициализации членов выполняются _до_ основного тела конструктра.\nВ дальнейшем мы увидим, почему это может быть полезно.\n\nВажно заметить, что инициализация полей из списка инициализации выполняется _не_ в порядке списка инициализации,\nа в том порядке, в котором поля были _объявлены_ в самом классе.\n\nКак и другие методы, конструкторы можно перегружать (overload).\nВоизбежанее дублирования кода из одного перегруженного конструктора можно вызывать другой (делегировать).\nДелается это в синтаксисе спосков инициализации.\n```c++\n    ReducedFraction(int num, unsigned int denom) : numerator(num), denominator(denom) {\n        assert(denominator != 0);\n        reduce();\n    }\n\n    ReducedFraction(int integer) : ReducedFraction(integer, 1) {\n    }\n\n    ReducedFraction() : ReducedFraction(0) {\n    }\n```\n\nКонструктор без параметров называется конструктором _по-умолчанию_.\nВ случае отсутствия у класса других конструкторов, он будет сгенерирован автоматически.\n\n\nПри создании новой переменной соответствующий конструктор будет вызван автоматически.\n```c++\nint main() {\n    ReducedFraction f1(3, 2); // вызывает ReducedFraction(int, unsigned int)\n    ReducedFraction f2(42); // вызывает ReducedFraction(int)\n    ReducedFraction f3; // вызывает конструктор по-умолчанию ReducedFraction()\n\n    return 0;\n}\n```\n\n# Операторы `new`/`delete`\nВ примере выше все три объекта создаются в _автоматической_ (стековой) памяти.\nДля создания объектов в _динамической_ памяти C++ предоставляет оператор `new`.\nОператор `delete` используется для освобождения ранее выделенной динамической памяти.\n```c++\nint main() {\n    ReducedFraction * f1 = new ReducedFraction(3, 2); // вызывает ReducedFraction(int, unsigned int)\n    ReducedFraction * f2 = new ReducedFraction(42); // вызывает ReducedFraction(int)\n    ReducedFraction * f3 = new ReducedFraction(); // вызывает конструктор по-умолчанию ReducedFraction()\n\n    delete f1;\n    delete f2;\n    delete f3;\n\n    return 0;\n}\n```\n\n## Массивы в динамической памяти\n```c++\nint main() {\n    ReducedFraction * array = new ReducedFraction[8];\n    delete[] array;\n\n    return 0;\n}\n```\nЭлементы массива выделяемого с помощью `new` будут проинициализированы с помощью конструктора _по-умолчанию_.\n\nДля освобождения памяти массива следует использвать оператор `delete[]`.\n\n",
+          "description_format" : "MD",
+          "feedback_link" : {
+            "link_type" : "STEPIK"
+          },
+          "task_type" : "theory"
+        },
+        {
+          "choiceOptions" : [
+            {
+              "text" : "Деструкторы нужны",
+              "status" : "CORRECT"
+            },
+            {
+              "text" : "Деструкторы важны",
+              "status" : "INCORRECT"
+            }
+          ],
+          "isMultipleChoice" : true,
+          "name" : "destructors",
+          "files" : {
+            "CMakeLists.txt" : {
+              "name" : "CMakeLists.txt",
+              "placeholders" : [ ],
+              "is_visible" : false,
+              "text" : "cmake_minimum_required(VERSION 3.20)\n\nproject(global-First_class-destructors)\n\nset(CMAKE_CXX_STANDARD 14)\n\n# Files from `./src` directory\nset(SRC\n        src/main.cpp)\n\n\n# Running learner side code\n# Use PROJECT_NAME dependent names of targets for the plugin support to work correctly.\nadd_executable(${PROJECT_NAME}-run ${SRC})"
+            },
+            "src/main.cpp" : {
+              "name" : "src/main.cpp",
+              "placeholders" : [ ],
+              "is_visible" : true,
+              "text" : "int main() {\n    // TODO destroy something\n    return 0;\n}"
+            }
+          },
+          "description_text" : "\nThis is a task description file.\nIts content will be displayed to a learner\nin the **Task Description** window.\n\nIt supports both Markdown and HTML.\nTo toggle the format, you can rename **task.md**\nto **task.html**, or vice versa.\nThe default task description format can be changed\nin **Preferences | Tools | Education**,\nbut this will not affect any existing task description files.\n\nThe following features are available in\n**task.md/task.html** which are specific to the EduTools plugin:\n\n- Hints can be added anywhere in the task text.\nType \"hint\" and press Tab.\nHints should be added to an empty line in the task text.\nIn hints you can use both HTML and Markdown.\n<div class=\"hint\">\n\nText of your hint\n\n</div>\n\n- You may need to refer your learners to a particular lesson,\ntask, or file. To achieve this, you can use the in-course links.\nSpecify the path using the `[link_text](course://lesson1/task1/file1)` format.\n\n- You can insert shortcuts in the task description.\nWhile **task.html/task.md** is open, right-click anywhere\non the **Editor** tab and choose the **Insert shortcut** option\nfrom the context menu.\nFor example: &shortcut:FileStructurePopup;.\n\n- Insert the &percnt;`IDE_NAME`&percnt; macro,\nwhich will be replaced by the actual IDE name.\nFor example, **%IDE_NAME%**.\n\n- Insert PSI elements, by using links like\n`<a href=\"psi_element://link.to.element\">element description</a>`.\nTo get such a link, right-click the class or method\nand select **Copy Reference**.\nThen press &shortcut:EditorPaste; to insert the link where appropriate.\nFor example, a <a href=\"psi_element://java.lang.String#contains\">link to the \"contains\" method</a>.",
+          "description_format" : "MD",
+          "feedback_link" : {
+            "link_type" : "STEPIK"
+          },
+          "task_type" : "choice"
+        }
+      ],
+      "type" : "lesson"
+    }
+  ],
+  "additional_files" : [
+    {
+      "name" : "cmake/catch.cmake",
+      "placeholders" : [ ],
+      "is_visible" : true,
+      "text" : "macro(fetch_catch _test_dir)\n    set(CATCH_HEADER \"${_test_dir}/catch.hpp\")\n\n    if (NOT EXISTS ${CATCH_HEADER})\n        set(CATCH_URL \"https://raw.githubusercontent.com/catchorg/Catch2/de6fe184a9ac1a06895cdd1c9b437f0a0bdf14ad/single_include/catch2/catch.hpp\")\n        file(DOWNLOAD ${CATCH_URL} ${CATCH_HEADER} SHOW_PROGRESS)\n        unset(CATCH_URL)\n    endif ()\n\n    include_directories(\"${_test_dir}\")\nendmacro()"
+    },
+    {
+      "name" : "cmake/utils.cmake",
+      "placeholders" : [ ],
+      "is_visible" : true,
+      "text" : "macro(add_subprojects _base_dir)\n    # Find all CMakeLists.txt paths\n    file(GLOB_RECURSE _cmake_files RELATIVE \"${_base_dir}\" CMakeLists.txt)\n    # Collect all subdirectories containing CMakeLists.txt\n    set(_dirs)\n    foreach (file_path ${_cmake_files})\n        get_filename_component(_dir_path ${file_path} PATH)\n        list(APPEND _dirs ${_dir_path})\n    endforeach ()\n\n    unset(_cmake_files)\n    unset(_dir_path)\n\n    # Add all finded directories\n    foreach (dir ${_dirs})\n        add_subdirectory(${dir})\n    endforeach ()\nendmacro()\n\nmacro(configure_test_target _target_name _src_files _test_files)\n    set(_src_part_lib ${_target_name}-src-part)\n\n    # Create utility library to separate src files from test files\n    add_library(${_src_part_lib} STATIC ${_src_files})\n\n    # Rename learners main function to prevent overloading or name conflicts\n    # It will rename symbols only in files from `_src_files` set\n    string(SHA1 _hash _target_name)\n    target_compile_definitions(${_src_part_lib} PRIVATE main=main${_hash})\n    unset(_hash)\n\n    # Create test executable target\n    add_executable(${_target_name} ${_test_files})\n\n    # Add files from `_src_files` set to target\n    target_link_libraries(${_target_name} ${_src_part_lib})\n\n    unset(_test_source)\nendmacro()"
+    },
+    {
+      "name" : "utils/checkio.hpp",
+      "placeholders" : [ ],
+      "is_visible" : true,
+      "text" : "# pragma once\n\n#include <string>\n\nnamespace chio {\n    auto notSpace = std::not1(std::ptr_fun<int, int>(std::isspace));\n\n    std::string ltrim(std::string s) {\n        s.erase(s.begin(), std::find_if(s.begin(), s.end(), notSpace));\n        return s;\n    }\n\n    std::string rtrim(std::string s) {\n        s.erase(std::find_if(s.rbegin(), s.rend(), notSpace).base(), s.end());\n        return s;\n    }\n\n    std::string trim(std::string const & s) {\n        return ltrim(rtrim(s));\n    }\n\n    void checkIO(std::function<void()> const & fun, std::string const & input, std::string const & output) {\n        std::istringstream iss;\n        std::streambuf* p_cin_streambuf = std::cin.rdbuf();\n        std::cin.rdbuf(iss.rdbuf());\n\n        std::ostringstream oss;\n        std::streambuf* p_cout_streambuf = std::cout.rdbuf();\n        std::cout.rdbuf(oss.rdbuf());\n\n        iss.str(input);\n\n        fun();\n\n        std::cout.rdbuf(p_cout_streambuf); // restore\n        std::cin.rdbuf(p_cin_streambuf); // restore\n\n        // test your oss content...\n        assert(oss && trim(oss.str()) == output);\n        std::cout << oss.str();\n    }\n}"
+    },
+    {
+      "name" : "CMakeLists.txt",
+      "placeholders" : [ ],
+      "is_visible" : true,
+      "text" : "# This file handles building each task as sub-project.\n#\n# Each task becomes an independent project in which you can experiment.\n#\n# Tasks are added as separate sub-projects so as compilation errors in\n# one task don't affect another task.\n\ncmake_minimum_required(VERSION 3.20)\n\nproject(interactive)\n\nset(TEST_DIR ${PROJECT_SOURCE_DIR}/test-framework)\n\ninclude(cmake/catch.cmake)\nfetch_catch(${TEST_DIR})\n\nset(UTILS_DIR ${PROJECT_SOURCE_DIR}/utils)\ninclude_directories(\"${UTILS_DIR}\")\n\n# Add tasks subprojects\ninclude(cmake/utils.cmake)\nadd_subprojects(${PROJECT_SOURCE_DIR})"
+    }
+  ],
+  "version" : 11
+}

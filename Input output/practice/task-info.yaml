@@ -1,0 +1,18 @@
+type: edu
+files:
+- name: CMakeLists.txt
+  visible: false
+- name: src/task.cpp
+  visible: true
+  placeholders:
+  - offset: 39
+    length: 175
+    placeholder_text: |-
+      // write your code here
+          std::cout << 0 << std::endl;
+- name: test/test.cpp
+  visible: false
+- name: task.pdf
+  visible: true
+- name: task.temp.html
+  visible: true

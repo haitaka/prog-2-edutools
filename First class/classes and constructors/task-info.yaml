@@ -1,0 +1,51 @@
+type: theory
+files:
+- name: CMakeLists.txt
+  visible: false
+- name: src/fraction.cpp
+  visible: true
+  placeholders:
+  - offset: 40
+    length: 1148
+    placeholder_text: |-
+      struct Fraction {
+          int numerator;
+          unsigned int denominator;
+      };
+
+      unsigned int gcd(unsigned int a, unsigned int b) {
+          unsigned int rem;
+          while (b > 0)
+          {
+              rem = a % b;
+              a = b;
+              b = rem;
+          }
+          return a;
+      }
+
+      void reduce(struct Fraction * f) {
+          int d = (int) gcd(f->numerator, f->denominator);
+          f->numerator /= d;
+          f->denominator /= d;
+      }
+
+      void print(struct Fraction * f) {
+          printf("%d/%d\n", f->numerator, f->denominator);
+      }
+
+      int main() {
+          struct Fraction f1 = {3, 2};
+          reduce(&f1);
+          print(&f1);
+
+          struct Fraction f2 = {15, 10};
+          reduce(&f2);
+          print(&f2);
+
+          struct Fraction f3 = {42, 0};
+          reduce(&f2);
+          print(&f3);
+
+          return 0;
+      }

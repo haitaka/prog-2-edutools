@@ -1,0 +1,10 @@
+title: Введение в ООП на примере C++
+language: Russian
+summary: |-
+  a.k.a. Программирование-2
+  3 семестр ММФ НГУ
+programming_language: C/C++
+environment: Catch
+content:
+- Input output
+- First class
