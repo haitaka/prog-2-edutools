@@ -8,3 +8,6 @@ environment: Catch
 content:
 - Input output
 - First class
+- const ref
+- operators
+- todo

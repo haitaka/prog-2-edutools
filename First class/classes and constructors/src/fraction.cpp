@@ -10,8 +10,6 @@ public:
 
     ReducedFraction() : ReducedFraction(1, 2) {}
 
-    ReducedFraction(ReducedFraction const & that) = default;
-
     int getNumerator() const {
         return this->numerator;
     }
@@ -20,7 +18,9 @@ public:
         return denominator;
     }
 
-    friend std::ostream & operator<<(std::ostream & out, ReducedFraction const & f);
+    void print() const {
+        std::cout << numerator << "/" << denominator << std::endl;
+    }
 
 private:
     void reduce() {
@@ -33,16 +33,11 @@ private:
     unsigned int denominator;
 };
 
-std::ostream & operator<<(std::ostream & out, ReducedFraction const & f) {
-    out << f.numerator << "/" << f.denominator;
-    return out;
-}
-
 int main() {
     ReducedFraction f1(3, 2);
     ReducedFraction f2(15, 10);
-    std::cout << f1 << std::endl;
-    std::cout << f2 << std::endl;
+    f1.print();
+    f2.print();
 
     ReducedFraction f3(42, 0);
     return 0;

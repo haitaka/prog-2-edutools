@@ -13,6 +13,6 @@ files:
 - name: src/main.cpp
   visible: true
   placeholders:
-  - offset: 218
+  - offset: 331
     length: 39
     placeholder_text: /* TODO */

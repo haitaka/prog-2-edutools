@@ -1,11 +1,13 @@
 cmake_minimum_required(VERSION 3.20)
 
-project(global-First_class-destructors)
+project(global-First_class-copy_constructor)
 
 set(CMAKE_CXX_STANDARD 14)
 
 # Files from `./src` directory
-set(SRC src/main.cpp)
+set(SRC
+        src/main.cpp)
+
 
 # Running learner side code
 # Use PROJECT_NAME dependent names of targets for the plugin support to work correctly.

@@ -1,8 +1,14 @@
+#include <sys/resource.h>
 #include <iostream>
+#include <malloc.h>
+#include <glob.h>
 #include <cassert>
 
+ // TODO
 class Array {
 public:
+    Array() : Array(DEFAULT_LENGTH) {}
+
     Array(int length) : length(length), data(new int[length]) {
         std::cout << "Constructed new array with data at " << data << std::endl;
     }
@@ -22,6 +28,8 @@ public:
     }
 
 private:
+    static int const DEFAULT_LENGTH = 1024;
+
     unsigned int length;
     int * data;
 };

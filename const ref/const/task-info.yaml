@@ -1,0 +1,22 @@
+type: theory
+files:
+- name: CMakeLists.txt
+  visible: false
+- name: src/array.h
+  visible: true
+  placeholders:
+  - offset: 109
+    length: 6
+    placeholder_text: /* TODO */
+- name: src/array.cpp
+  visible: true
+  placeholders:
+  - offset: 225
+    length: 6
+    placeholder_text: /* TODO */
+- name: src/main.cpp
+  visible: true
+  placeholders:
+  - offset: 1124
+    length: 45
+    placeholder_text: constArray.set(0, 23);
