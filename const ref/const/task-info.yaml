@@ -11,7 +11,7 @@ files:
 - name: src/array.cpp
   visible: true
   placeholders:
-  - offset: 225
+  - offset: 227
     length: 6
     placeholder_text: /* TODO */
 - name: src/main.cpp

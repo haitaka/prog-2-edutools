@@ -1,0 +1,10 @@
+type: theory
+files:
+- name: CMakeLists.txt
+  visible: false
+- name: src/main.cpp
+  visible: true
+  placeholders:
+  - offset: 197
+    length: 455
+    placeholder_text: /* TODO */

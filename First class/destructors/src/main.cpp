@@ -3,7 +3,7 @@
 
 class Array {
 public:
-    Array(int length) : length(length), data(new int[length]) {
+    Array(int length) : length(length), data(new int[length]()) {
         std::cout << "Constructed new array with data at " << data << std::endl;
     }
 

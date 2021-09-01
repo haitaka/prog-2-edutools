@@ -1,44 +1,49 @@
 #include <iostream>
 
-// TODO seconds and literals
-class EvenNumber {
+class Meters {
 public:
-    EvenNumber(int value) : value(value) {
-        if (value % 2 != 0) throw std::invalid_argument("Value have to be even");
-    }
+    Meters(unsigned long long int value) : value(value) {}
 
     // prefix
-    EvenNumber & operator++() {
-        value += 2;
+    Meters & operator++() {
+        ++value;
         return *this;
     }
 
     // postfix
-    EvenNumber operator++(int)
-    {
-        EvenNumber old = *this;
+    Meters operator++(int) {
+        Meters old = *this;
         operator++();
         return old;
     }
 
     // conversion
-    operator int() {
+    operator int() const {
         return value;
     }
 
 private:
-    int value;
+    unsigned long long int value;
 };
 
+Meters operator "" _m (unsigned long long int value) {
+    Meters meters(value);
+    return meters;
+}
+
+Meters operator "" _km (unsigned long long int value) {
+    Meters meters(value * 1000);
+    return meters;
+}
+
 int main() {
-    EvenNumber x(0);
+    Meters x = 42;
     std::cout << x++ << std::endl;
     std::cout << ++x << std::endl;
 
-    int y = x;
-
-    // will fail
-    EvenNumber z = 3;
+    Meters y = 42_km;
+    int z = y;
+    std::cout << z << std::endl;
 
     return 0;
 }

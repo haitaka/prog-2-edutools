@@ -5,7 +5,7 @@ Array::Array() : Array(DEFAULT_LENGTH) {}
 
 Array::Array(int length)
     : length(length)
-    , data(new int[length])
+    , data(new int[length]())
 {}
 
 Array::~Array() {

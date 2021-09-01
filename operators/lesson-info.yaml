@@ -1,3 +1,5 @@
 content:
 - arithmetic and stream
 - increment and conversion
+- subscript and call
+- copy assignment
