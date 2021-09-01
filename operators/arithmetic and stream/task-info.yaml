@@ -1,5 +1,5 @@
-custom_name: Арифметика и запист в поток
 type: theory
+custom_name: Арифметика и запист в поток
 files:
 - name: CMakeLists.txt
   visible: false

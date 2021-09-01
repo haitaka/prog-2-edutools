@@ -1,5 +1,5 @@
-custom_name: Ссылки (&)
 type: theory
+custom_name: Ссылки (&)
 files:
 - name: CMakeLists.txt
   visible: false

@@ -1,5 +1,5 @@
-custom_name: Квадратные и круглые скобки
 type: theory
+custom_name: Квадратные и круглые скобки
 files:
 - name: CMakeLists.txt
   visible: false

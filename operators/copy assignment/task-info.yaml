@@ -1,5 +1,5 @@
-custom_name: Копирование и присваивание
 type: theory
+custom_name: Копирование и присваивание
 files:
 - name: CMakeLists.txt
   visible: false

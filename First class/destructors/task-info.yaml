@@ -1,5 +1,5 @@
-custom_name: Деструкторы
 type: theory
+custom_name: Деструкторы
 files:
 - name: CMakeLists.txt
   visible: false

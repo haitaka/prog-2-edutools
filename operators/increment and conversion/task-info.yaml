@@ -1,5 +1,5 @@
-custom_name: Инкремент и привидение типов
 type: theory
+custom_name: Инкремент и привидение типов
 files:
 - name: CMakeLists.txt
   visible: false
