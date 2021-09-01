@@ -1,12 +1,11 @@
 cmake_minimum_required(VERSION 3.20)
 
-project(global-First_class-theory)
+project(global-First_class-classes_and_constructors)
 
 set(CMAKE_CXX_STANDARD 17)
 
 # Files from `./src` directory
-set(SRC
-        src/fraction.cpp)
+set(SRC src/fraction.cpp)
 
 
 # Running learner side code

@@ -1,3 +1,4 @@
+custom_name: Квадратные и круглые скобки
 type: theory
 files:
 - name: CMakeLists.txt

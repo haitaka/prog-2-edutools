@@ -1,12 +1,5 @@
-type: choice
-is_multiple_choice: true
-options:
-- text: Деструкторы нужны
-  is_correct: true
-- text: Деструкторы важны
-  is_correct: false
-message_correct: Congratulations!
-message_incorrect: Incorrect solution
+custom_name: Деструкторы
+type: theory
 files:
 - name: CMakeLists.txt
   visible: false

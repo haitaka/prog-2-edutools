@@ -1,5 +1,4 @@
+custom_name: Первый класс
 content:
 - classes and constructors
 - destructors
-- ../todo/copy constructor
-- ../todo/explicit constructor

@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.20)
 
-project(global-operators-increment)
+project(global-operators-increment_and_conversion)
 
 set(CMAKE_CXX_STANDARD 14)
 

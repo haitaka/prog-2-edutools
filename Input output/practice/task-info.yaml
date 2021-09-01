@@ -1,3 +1,4 @@
+custom_name: Практика
 type: edu
 files:
 - name: CMakeLists.txt
@@ -12,7 +13,3 @@ files:
           std::cout << 0 << std::endl;
 - name: test/test.cpp
   visible: false
-- name: task.pdf
-  visible: true
-- name: task.temp.html
-  visible: true

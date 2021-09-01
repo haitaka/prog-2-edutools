@@ -1,3 +1,4 @@
+custom_name: Копирование и присваивание
 type: theory
 files:
 - name: CMakeLists.txt

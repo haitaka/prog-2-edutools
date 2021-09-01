@@ -1,3 +1,4 @@
+custom_name: Инкремент и привидение типов
 type: theory
 files:
 - name: CMakeLists.txt
