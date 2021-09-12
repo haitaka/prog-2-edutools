@@ -5,7 +5,7 @@
 В языке C для вывода текста на экран и ввода текста с клавиатуры мы использовали функции `printf` и `scanf` 
 из стандартной библиотеки `stdio.h`.
 
-[io.c](course://Input output/theory/src/io.c):
+[io.c](course://1 Input output/theory/src/io.c):
 ```c
 #include <stdio.h>
 
@@ -22,7 +22,7 @@ int main() {
 Стандартная библиотека `iostream` предоставляет возможности для работы с _потоками_ ввода и вывода на консоль:
 `std::cin` и `std::cout`.
 
-[io.cpp](course://Input output/theory/src/io.cpp):
+[io.cpp](course://1 Input output/theory/src/io.cpp):
 ```c++
 #include <iostream>
 
@@ -81,4 +81,4 @@ int main() {
 ```
 Не стоит злоупотреблять этой возможностью, однако для `std` такой подход кажется приемлемым.
 
-[Пример объявления namespace](course://Input output/theory/src/namespaces.cpp)
+[Пример объявления namespace](course://1 Input output/theory/src/namespaces.cpp)

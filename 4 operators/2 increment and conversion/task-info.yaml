@@ -1,4 +1,5 @@
 type: theory
+custom_name: Инкремент и приведение типов
 files:
 - name: CMakeLists.txt
   visible: false

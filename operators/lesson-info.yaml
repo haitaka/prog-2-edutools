@@ -1,6 +1,0 @@
-custom_name: Перегрузка операторов
-content:
-- arithmetic and stream
-- increment and conversion
-- subscript and call
-- copy assignment
