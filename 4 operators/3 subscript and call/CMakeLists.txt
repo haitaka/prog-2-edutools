@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.20)
 
-project(global-operators-subscript_and_call)
+project(global-4_operators-3_subscript_and_call)
 
 set(CMAKE_CXX_STANDARD 14)
 

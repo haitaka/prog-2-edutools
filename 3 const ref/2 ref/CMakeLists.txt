@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.20)
 
-project(global-const_ref-ref)
+project(global-3_const_ref-2_ref)
 
 set(CMAKE_CXX_STANDARD 14)
 

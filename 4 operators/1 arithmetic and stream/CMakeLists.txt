@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.20)
 
-project(global-operators-arithmetic_and_stream)
+project(global-4_operators-1_arithmetic_and_stream)
 
 set(CMAKE_CXX_STANDARD 17)
 

@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.20)
 
-project(global-First_class-classes_and_constructors)
+project(global-2_First_class-1_classes_and_constructors)
 
 set(CMAKE_CXX_STANDARD 17)
 

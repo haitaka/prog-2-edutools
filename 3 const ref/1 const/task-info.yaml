@@ -18,6 +18,6 @@ files:
 - name: src/array.cpp
   visible: true
   placeholders:
-  - offset: 229
+  - offset: 228
     length: 6
     placeholder_text: /* TODO */

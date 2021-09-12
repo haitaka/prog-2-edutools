@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.20)
 
-project(global-Input_output-theory)
+project(global-1_Input_output-theory)
 
 set(CMAKE_CXX_STANDARD 17)
 

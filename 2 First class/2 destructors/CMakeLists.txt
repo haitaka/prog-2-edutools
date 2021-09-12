@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.20)
 
-project(global-First_class-destructors)
+project(global-2_First_class-2_destructors)
 
 set(CMAKE_CXX_STANDARD 14)
 

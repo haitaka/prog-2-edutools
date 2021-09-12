@@ -3,11 +3,11 @@ custom_name: Теория
 files:
 - name: CMakeLists.txt
   visible: false
-- name: src/hello.cpp
-  visible: true
 - name: src/io.cpp
   visible: true
 - name: src/io.c
   visible: true
 - name: src/namespaces.cpp
+  visible: true
+- name: src/hello.cpp
   visible: true
