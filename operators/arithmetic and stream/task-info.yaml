@@ -3,3 +3,5 @@ custom_name: Арифметика и запист в поток
 files:
 - name: CMakeLists.txt
   visible: false
+- name: src/main.cpp
+  visible: true

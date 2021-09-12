@@ -7,7 +7,7 @@ files:
   visible: true
   placeholders:
   - offset: 40
-    length: 694
+    length: 765
     placeholder_text: |-
       struct Fraction {
           int numerator;

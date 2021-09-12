@@ -5,3 +5,7 @@ files:
   visible: false
 - name: src/main.cpp
   visible: true
+  placeholders:
+  - offset: 220
+    length: 39
+    placeholder_text: /* TODO */

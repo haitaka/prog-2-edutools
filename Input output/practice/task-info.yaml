@@ -1,5 +1,5 @@
-custom_name: Практика
 type: edu
+custom_name: Практика
 files:
 - name: CMakeLists.txt
   visible: false

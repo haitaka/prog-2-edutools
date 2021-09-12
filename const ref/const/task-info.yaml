@@ -9,15 +9,15 @@ files:
   - offset: 1124
     length: 45
     placeholder_text: constArray.set(0, 23);
-- name: src/array.cpp
-  visible: true
-  placeholders:
-  - offset: 227
-    length: 6
-    placeholder_text: /* TODO */
 - name: src/array.h
   visible: true
   placeholders:
   - offset: 109
+    length: 6
+    placeholder_text: /* TODO */
+- name: src/array.cpp
+  visible: true
+  placeholders:
+  - offset: 229
     length: 6
     placeholder_text: /* TODO */
