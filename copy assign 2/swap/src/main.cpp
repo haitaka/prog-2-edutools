@@ -3,28 +3,25 @@
 
 class Array {
 public:
-    explicit Array(unsigned int length) : length(length), data(new int[length]()) {}
-
-    ~Array() {
-        delete[] data;
+    explicit Array(unsigned int length) : length(length), data(new int[length]()) {
+        std::cout << "main constructor" << std::endl;
     }
 
     Array(Array const & that) : length(that.length), data(new int[that.length]) {
+        std::cout << "copy constructor" << std::endl;
         for (int i = 0; i < length; ++i) {
             data[i] = that.data[i];
         }
     }
 
-    Array & operator=(Array const & that) {
-        if (this != &that) {
-            length = that.length;
-            int * oldData = data;
-            data = new int[length];
-            for (int i = 0; i < length; ++i) {
-                data[i] = that.data[i];
-            }
-            delete[] oldData;
-        }
+    ~Array() {
+        std::cout << "destructor" << std::endl;
+        delete[] data;
+    }
+
+    Array & operator=(Array copy) {
+        std::cout << "assignment" << std::endl;
+        swap(*this, copy);
         return *this;
     }
 
@@ -42,30 +39,33 @@ public:
         return length;
     }
 
+    friend void swap(Array & a, Array & b) {
+        using std::swap;
+        swap(a.length, b.length);
+        swap(a.data, b.data);
+    }
+
 private:
     unsigned int length;
     int * data;
 };
 
-void printElements(Array arr) {
+void printElements(Array const & arr) {
     std::cout << "Array elements:" << std::endl;
     for (int i = 0; i < arr.getLength(); ++i) {
         std::cout << arr[i] << std::endl;
     }
-    std::cout << std::endl;
 }
 
 int main() {
-    Array arr(10);
-    for (int i = 0; i < arr.getLength(); ++i) {
-        arr[i] = i * 2;
-    }
+    Array y(2);
+    y[0] = 42;
+    y[1] = 37;
 
-    printElements(arr);
-    printElements(arr);
+    Array x(0);
+    x = y;
 
-    Array arr2 = arr; // calls copy constructor
-    arr2 = arr; // calls assignment operator
+    printElements(x);
 
     return 0;
 }

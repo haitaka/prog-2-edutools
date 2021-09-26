@@ -36,9 +36,14 @@ void printFirstElement(Array const & arr) {
 }
 
 int main() {
-    Array arr(42);
+    Array const arr(42);
+
+    int x = arr.operator[](0);
+    int & ref = x;
+    ref = 23;
 
     arr[0] = 23;
+
     printFirstElement(arr);
 
     std::cout << arr(0, 1, 2) << std::endl;

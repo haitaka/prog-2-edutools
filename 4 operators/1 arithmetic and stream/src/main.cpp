@@ -6,13 +6,13 @@ public:
     Complex(int re, int im) : re(re), im(im) {}
 
     Complex operator+(Complex const & that) const {
-        Complex sum(re + that.re, im + that.im);
+        Complex sum(this->re + that.re, this->im + that.im);
         return sum;
     }
 
     Complex & operator+=(Complex const & that) {
-        re += that.re;
-        im += that.im;
+        this->re += that.re;
+        this->im += that.im;
         return *this;
     }
 
@@ -70,9 +70,10 @@ int main() {
     Complex i(0, 1);
 
     Complex x = one + i;
-    std::cout << x << std::endl;
+    (std::cout << x) << std::endl;
 
     x += i;
+    x.operator+=(i);
     std::cout << x << std::endl;
 
     Complex y = 3 + x + i + i + 7;

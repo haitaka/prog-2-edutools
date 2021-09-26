@@ -4,17 +4,17 @@ class Meters {
 public:
     Meters(unsigned long long int value) : value(value) {}
 
-    // prefix
-    Meters & operator++() {
-        ++value;
-        return *this;
-    }
-
     // postfix
     Meters operator++(int) {
         Meters old = *this;
         operator++();
         return old;
+    }
+
+    // prefix
+    Meters & operator++() {
+        ++value;
+        return *this;
     }
 
     // conversion
