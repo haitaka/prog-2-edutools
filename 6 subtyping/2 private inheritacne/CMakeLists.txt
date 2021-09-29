@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.20)
 
-project(global-inheritance-basics)
+project(global-6_subtyping-private_inheritacne)
 
 set(CMAKE_CXX_STANDARD 14)
 

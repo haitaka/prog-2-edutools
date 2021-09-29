@@ -10,5 +10,5 @@ content:
 - 2 First class
 - 3 const ref
 - 4 operators
-- copy assign 2
-- inheritance
+- 5 trinity
+- 6 subtyping

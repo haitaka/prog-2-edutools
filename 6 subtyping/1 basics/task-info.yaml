@@ -1,0 +1,23 @@
+type: theory
+custom_name: Наследование и виртуальные вызовы
+files:
+- name: CMakeLists.txt
+  visible: false
+- name: src/array-stack.h
+  visible: true
+- name: src/main.cpp
+  visible: true
+- name: src/list.h
+  visible: true
+- name: src/list.cpp
+  visible: true
+- name: src/list-stack.cpp
+  visible: true
+- name: src/array-stack.cpp
+  visible: true
+- name: src/stack.h
+  visible: true
+- name: src/list-stack.h
+  visible: true
+- name: src/stack.cpp
+  visible: true
