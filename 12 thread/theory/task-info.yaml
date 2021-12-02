@@ -1,0 +1,18 @@
+type: theory
+files:
+- name: CMakeLists.txt
+  visible: false
+- name: src/0-threads.cpp
+  visible: true
+- name: src/1-counter.cpp
+  visible: true
+- name: src/2-prod-cons-err.cpp
+  visible: true
+- name: src/3-prod-cons-mutex.cpp
+  visible: true
+- name: src/4-prod-cons-raii.cpp
+  visible: true
+- name: src/5-deadlock.cpp
+  visible: true
+- name: src/6-cond-var.cpp
+  visible: true

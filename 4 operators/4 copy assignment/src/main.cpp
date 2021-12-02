@@ -47,22 +47,20 @@ private:
     int * data;
 };
 
-void printElements(Array arr) {
-    std::cout << "Array elements:" << std::endl;
-    for (int i = 0; i < arr.getLength(); ++i) {
-        std::cout << arr[i] << std::endl;
-    }
-    std::cout << std::endl;
-}
-
 int main() {
     Array arr(10);
     for (int i = 0; i < arr.getLength(); ++i) {
         arr[i] = i * 2;
     }
 
-    printElements(arr);
-    printElements(arr);
+    std::cout << "Array elements:" << std::endl;
+    for (int i1 = 0; i1 < arr.getLength(); ++i1) {
+        std::cout << arr[i1] << std::endl;
+    }
+    std::cout << "Array elements:" << std::endl;
+    for (int i2 = 0; i2 < arr.getLength(); ++i2) {
+        std::cout << arr[i2] << std::endl;
+    }
 
     Array arr2 = arr; // calls copy constructor
     arr2 = arr; // calls assignment operator

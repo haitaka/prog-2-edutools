@@ -50,22 +50,17 @@ private:
     int * data;
 };
 
-void printElements(Array const & arr) {
-    std::cout << "Array elements:" << std::endl;
-    for (int i = 0; i < arr.getLength(); ++i) {
-        std::cout << arr[i] << std::endl;
-    }
-}
-
 int main() {
     Array y(2);
     y[0] = 42;
     y[1] = 37;
 
-    Array x(0);
-    x = y;
+    Array arr(y);
+    std::cout << "Array elements:" << std::endl;
+    for (int i = 0; i < arr.getLength(); ++i) {
+        std::cout << arr[i] << std::endl;
+    }
 
-    printElements(x);
 
     return 0;
 }

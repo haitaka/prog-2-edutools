@@ -7,7 +7,7 @@ void drainAndPrint(Stack * stack) {
     // same as
     // stack->drainAndPrint();
 
-    while(!stack->isEmpty()) {
+    while (!stack->isEmpty()) {
         std::cout << stack->pop() << std::endl;
     }
 }
